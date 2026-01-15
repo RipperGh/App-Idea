@@ -37,6 +37,17 @@ python app/main.py
 
 If you are running headless, you will need a GUI session (X11/Wayland) before launching PyQt6.
 
+## Paper Trading Test Flow
+1. Launch the app:
+   ```bash
+   python app/main.py
+   ```
+2. Keep **Mode** set to **Paper Trading** in the top execution controls.
+3. Adjust **Stop-Loss** and **Take-Profit** to ensure risk inputs are valid (required by the executor).
+4. Observe the **Probability Overlay** and **Logic Feed** update as mock market data refreshes.
+
+Note: The current scaffold validates risk inputs and simulates paper trade submissions, but it does not yet wire actual order routing from the UI into the `TradeExecutor`. Live trading remains stubbed until Alpaca-py and CCXT integrations are added.
+
 ## Security Wrapper (.env encryption)
 1. Create a `.env` file in the repo root with your Alpaca + CCXT keys.
 2. Run the encryption script:
