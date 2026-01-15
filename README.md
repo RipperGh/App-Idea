@@ -23,8 +23,19 @@ App-Idea/
 │   └── security/
 │       ├── __init__.py
 │       └── env_crypto.py         # Encrypt/decrypt .env using Fernet
+├── requirements.txt
 └── README.md
 ```
+
+## Kali VM Setup
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python app/main.py
+```
+
+If you are running headless, you will need a GUI session (X11/Wayland) before launching PyQt6.
 
 ## Security Wrapper (.env encryption)
 1. Create a `.env` file in the repo root with your Alpaca + CCXT keys.

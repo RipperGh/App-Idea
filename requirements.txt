@@ -1,0 +1,9 @@
+PyQt6
+PyQt6-WebEngine
+plotly
+pandas
+pandas-ta
+nltk
+python-dotenv
+cryptography
+numpy
