@@ -5,6 +5,7 @@ import getpass
 import os
 from dataclasses import dataclass
 from pathlib import Path
+from io import StringIO
 
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
@@ -44,7 +45,7 @@ def decrypt_env_to_memory(paths: EncryptedEnvPaths, password: str) -> dict[str, 
     key = derive_key(password, salt)
     fernet = Fernet(key)
     plaintext = fernet.decrypt(paths.encrypted_path.read_bytes())
-    values = dotenv_values(stream=plaintext.decode("utf-8"))
+    values = dotenv_values(stream=StringIO(plaintext.decode("utf-8")))
     return {key: value for key, value in values.items() if value is not None}
 
 
